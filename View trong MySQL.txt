@@ -1,0 +1,30 @@
+```sql
+USE classicmodels;
+
+-- Bài 1: Tạo view customer_views
+CREATE OR REPLACE VIEW customer_views AS
+SELECT customerNumber, customerName, phone
+FROM customers;
+
+-- Hiển thị dữ liệu từ view
+SELECT * FROM customer_views;
+
+
+-- Bài 2: Cập nhật view, bổ sung thông tin liên hệ
+-- và chỉ lấy khách hàng ở thành phố Nantes
+CREATE OR REPLACE VIEW customer_views AS
+SELECT customerNumber,
+       customerName,
+       contactFirstName,
+       contactLastName,
+       phone
+FROM customers
+WHERE city = 'Nantes';
+
+-- Kiểm tra view sau khi cập nhật
+SELECT * FROM customer_views;
+
+
+-- Bài 3: Xóa view khi không còn sử dụng
+DROP VIEW IF EXISTS customer_views;
+```
